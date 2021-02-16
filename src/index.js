@@ -9,7 +9,7 @@ import RegisterPage from './pages/registerpage';
 
 ReactDOM.render(
   <React.StrictMode>
-    <RegisterPage></RegisterPage>
+    <HomePage></HomePage>
   </React.StrictMode>,
   document.getElementById('root')
 );
