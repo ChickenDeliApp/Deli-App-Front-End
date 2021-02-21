@@ -83,8 +83,21 @@ class HomePage extends Component {
                     <h2>
                     points
                     </h2>
+
                    <h2>
-                   </h2>
+                       1.
+                    </h2>
+                    Centra, Galway
+                    <h2>
+                    593
+                    </h2>
+                    <h2>
+                      2.
+                    </h2>
+                    Dunnes, Eyre Square
+                    <h2>
+                    400
+                    </h2>
                 </div>
             </div>
             <br></br>
