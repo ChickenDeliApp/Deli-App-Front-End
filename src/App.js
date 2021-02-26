@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import RegisterPage from './pages/registerpage';
 import LoginPage from './pages/loginpage';
 import { Navbar, Nav } from 'react-bootstrap';
+import MapPage from './pages/mappage';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         <Nav>
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/register">Delis</Nav.Link>
-          <Nav.Link href="/login">Search</Nav.Link>
+          <Nav.Link href="/map">Search</Nav.Link>
         </Nav>
       </Navbar>
 
@@ -32,6 +33,7 @@ function App() {
         <Route path='/(home|)' component={HomePage} exact />
         <Route path='/register' component={RegisterPage} exact />
         <Route path='/login' component={LoginPage} exact />
+        <Route path='/map' component={MapPage} exact />
        
       </Switch>
     </div>
