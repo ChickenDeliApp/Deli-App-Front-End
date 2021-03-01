@@ -5,6 +5,8 @@ import RegisterPage from './pages/registerpage';
 import LoginPage from './pages/loginpage';
 import { Navbar, Nav } from 'react-bootstrap';
 import MapPage from './pages/mappage';
+import ReviewPost from './pages/review_post';
+
 
 function App() {
   return (
@@ -34,6 +36,7 @@ function App() {
         <Route path='/register' component={RegisterPage} exact />
         <Route path='/login' component={LoginPage} exact />
         <Route path='/map' component={MapPage} exact />
+        <Route path="/review/post" component={ReviewPost} exact />
        
       </Switch>
     </div>
