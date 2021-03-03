@@ -22,8 +22,8 @@ function App() {
 
         <Nav>
           <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/register">Delis</Nav.Link>
-          <Nav.Link href="/map">Search</Nav.Link>
+          <Nav.Link href="/review/post">Post a Review</Nav.Link>
+          <Nav.Link href="/map">Map</Nav.Link>
         </Nav>
       </Navbar>
 
