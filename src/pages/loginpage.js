@@ -1,24 +1,32 @@
 import { Component } from "react";
+import { Form, Card, Button } from "react-bootstrap";
 import "../pages/loginpage.css"
 
 class LoginPage extends Component {
     render() {
         return (
-            <div className="flex justify-center" style={{position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)"}}>
+            <div style={{position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)"}}>
+                <Card style={{ width: "28rem" }} className="text-left p-4">
+                    <Form style={{ background: "white" }}>
+                        <h2 className="mb-4 text-primary font-weight-light">Account Login</h2>
 
-                <div className="bg-white rounded-xl p-14 border-solid border-4" style={{borderColor: "#c7c1d0"}}>
-                    <h1 className="text-lg mb-2 -mt-10 -ml-10 antialiased font-semibold">Please log in</h1>
-                    <form>
-                        <label>Username</label><br/>
-                        <input type="text" className="bgcolor rounded-lg" placeholder="">
-                        </input><br/>
+                        <Form.Group controlId="email">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control type="email" id="email" />
+                        </Form.Group>
 
-                        <label>Password</label><br/>
-                        <input type="Password" className="bgcolor rounded-lg" placeholder="">
-                        </input>
-                    </form>                   
-                </div>
-            </div> 
+                        <Form.Group controlId="password">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type="password" placeholder="hunter2" id="password" />
+                        </Form.Group>
+
+
+                        <Button variant="primary" type="submit">
+                            Proceed
+                        </Button>
+                    </Form>
+                </Card>
+            </div>
         )
     }
 }
