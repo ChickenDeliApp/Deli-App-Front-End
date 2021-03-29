@@ -7,7 +7,7 @@ class LoginPage extends Component {
         return (
             <div style={{position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)"}}>
                 <Card style={{ width: "28rem" }} className="text-left p-4">
-                    <Form style={{ background: "white" }}>
+                    <Form style={{ background: "white" }} noValidate action="/login" method="POST">
                         <h2 className="mb-4 text-primary font-weight-light">Account Login</h2>
 
                         <Form.Group controlId="email">
