@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import RegisterPage from './pages/registerpage';
 import LoginPage from './pages/loginpage';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
-import MapPage from './pages/mappage';
 import ReviewPost from './pages/review_post';
 import { useSelector } from 'react-redux';
 import $ from "jquery"
@@ -12,6 +11,7 @@ import UsernameStore from './states/User/Store';
 import ChainPage from './pages/chainpage';
 import { useEffect } from 'react';
 import PostRestaurantPage from './pages/restaurant_post';
+import RestaurantPage from './pages/restaurant_page';
 
 
 function App() {
@@ -20,15 +20,20 @@ function App() {
 	function doLogout(event){
 		event.preventDefault()
 
-		$.post("/logout", (data) => {
-			UsernameStore.dispatch({
-				type:"user/logout"
-			})
+		$.post("/logout")
+
+		UsernameStore.dispatch({
+			type:"user/logout"
 		})
 	}
 
 	useEffect(() => {
+		console.log("authed sent");
+
 		$.get("/authed", (data) => {
+			console.log("got authed");
+			console.log(data);
+
 			if(username !== undefined && !data.loggedIn){
 				UsernameStore.dispatch({
 					type:"user/logout"
@@ -83,10 +88,11 @@ function App() {
 						<Route path='/(home|)' component={HomePage} exact />
 						<Route path='/register' component={RegisterPage} exact />
 						<Route path='/login' component={LoginPage} exact />
-						<Route path='/map' component={MapPage} exact />
 						<Route path="/review/post" component={ReviewPost} exact />
+						<Route path="/restaurant/view/:id" component={RestaurantPage} exact />
 						<Route path="/restaurant/post" component={PostRestaurantPage} exact />
 						<Route path="/chain/post" component={ChainPage} exact />
+
 						<Route path="*">
 							<h1 className="p-3">404 Not Found :(</h1>
 						</Route>
