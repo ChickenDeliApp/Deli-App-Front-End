@@ -1,4 +1,3 @@
-import './App.css';
 import HomePage from './pages/homepage';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import RegisterPage from './pages/registerpage';
@@ -28,12 +27,7 @@ function App() {
 	}
 
 	useEffect(() => {
-		console.log("authed sent");
-
 		$.get("/authed", (data) => {
-			console.log("got authed");
-			console.log(data);
-
 			if(username !== undefined && !data.loggedIn){
 				UsernameStore.dispatch({
 					type:"user/logout"
