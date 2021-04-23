@@ -45,12 +45,12 @@ function ReviewPost( props ) {
 			console.log(data);
 
 			let index = 0
-			let restaurants = data.map( chain => {
+			let restaurants = data?.map( chain => {
 				index++
 				return (
 					<Marker onClick={() => {optionRef.current.value = chain.id}} title={chain.restaurantName} key={chain.id} position={{lat: chain.geo_location.coordinates[0], lng: chain.geo_location.coordinates[1]}}></Marker>
 				)
-			} )
+			} ) ?? []
 
 			index = 0
 			let restaurantsInfo = data.map( restaurant => {
@@ -72,11 +72,8 @@ function ReviewPost( props ) {
 	const submitRestaurant = useCallback( ( event ) => {
 		event.preventDefault()
 
-		console.log( "please!" );
-		console.log( $( "#chainForm" ).serialize() );
-
 		$.post( {
-			url: "/chains/restaurant/new",
+			url: "/reviews/new",
 			data: $( "#chainForm" ).serialize(),
 			success: ( res ) => {
 				$( "#chainForm" ).trigger( "reset" )
@@ -97,9 +94,9 @@ function ReviewPost( props ) {
 							<Form.Row>
 
 								<Col>
-									<Form.Group controlId="chainName">
+									<Form.Group controlId="reviewRestaurant">
 										<Form.Label>Restaurant</Form.Label>
-										<Form.Control ref={optionRef} name="chainName" required as="select">
+										<Form.Control ref={optionRef} name="reviewRestaurant" required as="select">
 											{ restaurantsDrop }
 										</Form.Control>
 									</Form.Group>
@@ -107,14 +104,14 @@ function ReviewPost( props ) {
 							</Form.Row>
 
 
-							<Form.Group controlId="text">
+							<Form.Group controlId="reviewText">
 								<Form.Label>Review</Form.Label>
-								<Form.Control as="textarea" rows={5} name="restaurantAddress" required type="text" placeholder="" />
+								<Form.Control as="textarea" rows={5} name="reviewText" required type="text" placeholder="" />
 							</Form.Group>
 
-							<Form.Group controlId="restaurantPostcode">
+							<Form.Group controlId="reviewScore">
 								<Form.Label>Rating</Form.Label>
-								<Form.Control name="restaurantPostcode" required type="range" min="1" max="5" placeholder=""/>
+								<Form.Control name="reviewScore" required type="range" min="1" max="5" placeholder=""/>
 							</Form.Group>
 
 							<Button variant="primary" type="submit">
