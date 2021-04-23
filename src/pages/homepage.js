@@ -17,7 +17,7 @@ function HomePage() {
 			success: ( data ) => {
 				console.log( data );
 
-				bestReviews = data.map( (review, index) => {
+				bestReviews = data?.map( (review, index) => {
 					return (
 						<tr onClick={() => { history.push(`/restaurant/view/${review.id}`)}}>
 							<td>{index + 1}</td>
@@ -38,7 +38,9 @@ function HomePage() {
 		$.ajax( {
 			url: "/reviews/latest",
 			success: ( data ) => {
-				let latestReviews = data.map( review => {
+				console.log(data);
+
+				let latestReviews = data?.map( review => {
 					return (
 						<ReviewCard key={review.id} date={review.createDate} author={review?.User?.username} store={review.DeliRestaurant.restaurantName + " || " + review.DeliRestaurant.DeliChainChainName} rating={review.rating} description={review.text}  ></ReviewCard>
 					)
