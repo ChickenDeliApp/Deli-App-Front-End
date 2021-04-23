@@ -13,7 +13,6 @@ function ChainPage( props ) {
 			const maxPages = Math.max( ( data.count / 10 ) + 1, 1 )
 			activePage = Math.min( page, maxPages )
 
-			console.log(data)
 
 			let index = 0
 			const arr = data?.rows?.map( chain => {
@@ -101,8 +100,6 @@ function ChainPage( props ) {
 						<Pagination>
 							{pages}
 						</Pagination>
-
-
 					</Card>
 				</Col>
 			</Row>
